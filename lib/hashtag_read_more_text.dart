@@ -5,12 +5,14 @@ class HashTagReadMoreText extends StatefulWidget {
   final String text;
   final TextStyle basicStyle;
   final TextStyle decoratedStyle;
+  final Function(String) onHashTagTapped;
   final Color expandingButtonColor;
 
   HashTagReadMoreText(
     this.text, {
     @required this.basicStyle,
     @required this.decoratedStyle,
+    this.onHashTagTapped,
     this.expandingButtonColor,
   });
 
@@ -39,6 +41,7 @@ class _HashTagReadMoreTextState extends State<HashTagReadMoreText>
                 padding: EdgeInsets.all(5.0),
                 child: HashTagText(
                   text: widget.text,
+                  onTap: widget.onHashTagTapped,
                   basicStyle: widget.basicStyle,
                   decoratedStyle: widget.decoratedStyle,
                   softWrap: true,
